@@ -31,7 +31,9 @@ export const ChatSuggestions = ({
               borderColor: styling.widgetColor || '#4f46e5',
               color: styling.widgetColor || '#4f46e5',
             }}
+            aria-label={`Ask: ${suggestion}`}
           >
+            <span className={styles.suggestionIcon}>?</span>
             {suggestion}
           </button>
         ))}

@@ -45,6 +45,10 @@ export interface ChatBotProps {
   backendUrl?: string;
   /** Configuration for direct LLM API calls (alternative to backendUrl) */
   directLlmConfig?: DirectLlmConfig;
+  /** LLM provider (e.g., 'openai', 'gemini', 'claude'). If provided with apiKey, overrides directLlmConfig. */
+  llmProvider?: 'openai' | 'gemini' | 'claude';
+  /** API key for the LLM provider. Used with llmProvider. */
+  apiKey?: string;
   /** Context information to help guide the AI responses */
   context?: string;
   /** Tone of the AI responses */

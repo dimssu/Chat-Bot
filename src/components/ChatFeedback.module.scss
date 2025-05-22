@@ -27,6 +27,10 @@
     background-color: rgba(0, 0, 0, 0.05);
   }
   
+  &.selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
   svg {
     color: #6b7280;
   }
@@ -50,7 +54,27 @@
     }
   }
   
-  button {
+  .buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .cancelButton {
+    background-color: transparent;
+    color: #6b7280;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #f9fafb;
+    }
+  }
+  
+  .submitButton {
     background-color: #4f46e5;
     color: white;
     border: none;
@@ -61,6 +85,11 @@
     
     &:hover {
       background-color: #4338ca;
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 }

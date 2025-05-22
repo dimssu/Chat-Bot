@@ -7,10 +7,13 @@ import { ChatSuggestions } from './ChatSuggestions';
 import { ChatFeedback } from './ChatFeedback';
 import { ChatFileUpload } from './ChatFileUpload';
 import styles from './ChatBot.module.scss';
+import { getLlmConfig } from '../llmConfigs';
 
 export const ChatBot = ({
   backendUrl,
-  directLlmConfig,
+  directLlmConfig: directLlmConfigProp,
+  llmProvider,
+  apiKey,
   context,
   responseType = 'formal',
   position = 'bottom-right',
@@ -42,6 +45,11 @@ export const ChatBot = ({
   
   // Apply system theme if selected
   const [effectiveTheme, setEffectiveTheme] = useState(theme);
+  
+  // Determine which directLlmConfig to use
+  const directLlmConfig = llmProvider && apiKey
+    ? getLlmConfig(llmProvider, apiKey)
+    : directLlmConfigProp;
   
   useEffect(() => {
     if (theme === 'system') {
